@@ -24,7 +24,7 @@ with open(email, "r") as arq:
 # login no servidor smtp
 s = smtplib.SMTP('smtp.gmail.com', 587)
 s.starttls()
-s.login('xandao.labs@gmail.com', 'Aa.07343957')
+s.login('seu_email', 'sua_senha')
 
 def checaProdutos(var):
     # ---- verifica se o código recebido é um produto
@@ -50,12 +50,12 @@ def mandaEmail():
         msg.set_content(fp.read())
 
     msg['Subject'] = 'Paiol do futuro - saída detectada'
-    msg['From'] = "xandao.labs@gmail.com"
+    msg['From'] = "seu_email"
     msg['To'] = dest
 
     # Encaminha o e-mail através do servidor smtp do google
     try:
-        s.sendmail('xandao.labs@gmail.com', dest, msg.as_string())
+        s.sendmail('seu_email', dest, msg.as_string())
         s.quit()
 
     except:
